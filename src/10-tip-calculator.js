@@ -30,5 +30,60 @@
  * @returns {{ tipPercentage: number, tipAmount: number, totalAmount: number } | null}
  */
 export function calculateTip(billAmount, serviceRating) {
-  // Your code here
+  if(billAmount<=0){
+    return null;
+  }
+  if(!Number.isInteger(serviceRating)||serviceRating<1 || serviceRating>5){
+    return null;
+  }
+  if(serviceRating===1){
+    let tipA= (5*billAmount)/100;
+    tipA = Math.round(tipA*100)/100;
+    let total = Math.round((billAmount+tipA)*100)/100;
+    return { 
+      tipPercentage: 5, 
+      tipAmount: tipA, 
+      totalAmount: total
+    }
+  }
+  else if(serviceRating===2){
+    let tipA= (10*billAmount)/100;
+    tipA = Math.round(tipA*100)/100;
+    let total = Math.round((billAmount+tipA)*100)/100;
+    return { 
+      tipPercentage: 10, 
+      tipAmount: tipA, 
+      totalAmount: total 
+    }
+  }
+  else if(serviceRating===3){
+    let tipA= (15*billAmount)/100;
+    tipA = Math.round(tipA*100)/100;
+    let total = Math.round((billAmount+tipA)*100)/100;
+    return { 
+      tipPercentage: 15, 
+      tipAmount: tipA, 
+      totalAmount: total
+    }
+  }
+  else if(serviceRating===4){
+    let tipA= (20*billAmount)/100;
+    tipA = Math.round(tipA*100)/100;
+    let total = Math.round((billAmount+tipA)*100)/100;
+    return { 
+      tipPercentage: 20, 
+      tipAmount: tipA, 
+      totalAmount: total 
+    }
+  }
+  else if(serviceRating===5){
+    let tipA= (25*billAmount)/100;
+    tipA = Math.round(tipA*100)/100;
+    let total = Math.round((billAmount+tipA)*100)/100;
+    return { 
+      tipPercentage: 25, 
+      tipAmount: tipA, 
+      totalAmount: total
+    }
+  }
 }

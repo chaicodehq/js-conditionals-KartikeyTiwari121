@@ -31,5 +31,45 @@
  * @returns {{ season: string, activity: string } | null}
  */
 export function getSeasonActivity(month, temperature) {
-  // Your code here
+  if(month<1 || month >12){
+    return null;
+  }
+  let FindSeason = null;
+  if(month===12 ||month===1 ||month===2){
+    FindSeason = "Winter";
+  }
+  else if(month===3 ||month===4 ||month===5){
+    FindSeason = "Spring";
+  }
+  else if(month===6 ||month===7 ||month===8){
+    FindSeason = "Summer";
+  }
+  else if(month===9 ||month===10 ||month===11){
+    FindSeason = "Autumn";
+  }
+  if(FindSeason=="Winter" && temperature < 0){
+    return { season: FindSeason, activity: "skiing"};
+  }
+  else if(FindSeason=="Winter" && temperature >= 0){
+    return { season: FindSeason, activity: "ice skating"};
+  }
+  else if(FindSeason=="Spring" && temperature > 20){
+    return { season: FindSeason, activity: "hiking"};
+  }
+  else if(FindSeason=="Spring" && temperature <= 20){
+    return { season: FindSeason, activity: "museum visit"};
+  }
+  else if(FindSeason=="Summer" && temperature > 35){
+    return { season: FindSeason, activity: "swimming"};
+  }
+  else if(FindSeason=="Summer" && temperature <= 35){
+    return { season: FindSeason, activity: "cycling"};
+  }
+  else if(FindSeason=="Autumn" && temperature > 15){
+    return { season: FindSeason, activity: "nature walk"};
+  }
+  else if(FindSeason=="Autumn" && temperature <= 15){
+    return { season: FindSeason, activity: "reading at a cafe"};
+  }
+
 }
